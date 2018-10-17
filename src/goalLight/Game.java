@@ -82,5 +82,4 @@ public class Game {
 			return awayTeam;
 		else return "It's a tie game";
 	}
-	
 }

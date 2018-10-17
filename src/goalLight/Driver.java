@@ -32,8 +32,6 @@ public class Driver {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-
-
 		}
 	}
 
@@ -44,9 +42,8 @@ public class Driver {
 		delay = d;
 	}
 
-	//allows user to modify aspects of program during runtime (e.g. change delay)
+	//allows user to modify aspects of program during runtime (e.g. change delay) from console
 	public static class readConsole implements Runnable {
-
 		public void run(){
 			Scanner input = new Scanner(System.in);
 
@@ -71,9 +68,6 @@ public class Driver {
 				}
 				input.nextLine();
 			}	
-
-
-
 		}
 	}
 }

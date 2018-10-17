@@ -1,7 +1,6 @@
 package goalLight;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -26,8 +25,7 @@ public class RetrieveStats {
 			return null;
 		}
 
-		BufferedReader in = new BufferedReader(
-				new InputStreamReader(con.getInputStream()));
+		BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
 		String inputLine;
 		StringBuffer response = new StringBuffer();
 		while ((inputLine = in.readLine()) != null) {
@@ -37,7 +35,6 @@ public class RetrieveStats {
 
 		JSONObject info = new JSONObject(response.toString());
 		return info;
-
 	}
 
 
@@ -79,8 +76,8 @@ public class RetrieveStats {
 	}
 	//TODO: check for overturned goals - determine if the json file shows anything about them (would throw off score checking)!!!!
 	public static void gameUpdate(Schedule s) throws Exception{
-		for(int i = 0; i < s.arSchedule.size();i++){
-			Game game = s.arSchedule.get(i);
+		for(int i = 0; i < s.getNumGames();i++){
+			Game game = s.getGame(i);
 						
 			//check game hasn't already ended
 			if(!game.getStatus().equals("Final")){

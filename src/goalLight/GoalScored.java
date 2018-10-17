@@ -8,7 +8,7 @@ import com.pi4j.io.gpio.PinState;
 import com.pi4j.io.gpio.RaspiPin;
 
 public class GoalScored implements Runnable {
-
+	
 	private int ind;
 	private Game game;
 	private String teamScored;
@@ -62,14 +62,6 @@ public class GoalScored implements Runnable {
 			     
 		}
 	}
-
-	private String scorersToString(String[] scorers){
-		int numPlayers = scorers.length;
-
-		if(numPlayers == 1)		return (teamScored + " goal, scored by " + scorers[0]);
-		else if (numPlayers == 2)	return teamScored + " goal, scored by " + scorers[0] + " assisted by " + scorers[1];
-		else	return teamScored + " goal scored by " + scorers[0] + ", assisted by " + scorers[1] + " and " + scorers[2];
-	}
 	
 	private String getScore(){
 		return game.getAwayAbr()+" "+game.getScore("away")+" - "+game.getHomeAbr()+" "+game.getScore("home");
@@ -89,7 +81,6 @@ public class GoalScored implements Runnable {
 	}
 	
 	private static void scrollText(int row,String s) throws InterruptedException{
-
 		if(s.length()>16){
 			lcd.write(row,s.substring(0, 16));
 			Thread.sleep(1000);
@@ -107,5 +98,4 @@ public class GoalScored implements Runnable {
 			Thread.sleep(10000);
 		}
 	}
-
 }
