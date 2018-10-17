@@ -15,7 +15,8 @@ public class GoalScored implements Runnable {
 	public final static int LCD_ROWS = 2;
 	public final static int LCD_COLUMNS = 16;
 	public final static int LCD_BITS = 4;
-	public final static boolean raspPi = false;	//TODO: at some point would be nice to check this programmatically
+	//set raspPi to false if not running on raspberry Pi (e.g. if debugging on computer)
+	public final static boolean raspPi = true;	//TODO: at some point would be nice to check this programmatically
 	public static final GpioLcdDisplay lcd = new GpioLcdDisplay(LCD_ROWS,    // number of row supported by LCD
 			LCD_COLUMNS,       // number of columns supported by LCD
 			RaspiPin.GPIO_11,  // LCD RS pin
